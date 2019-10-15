@@ -1,0 +1,17 @@
+{% extends "cd_library/base.html" %}
+{% block title %} Add a CD {% endblock %}
+{% block body %}
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Add CD">
+    </form>
+    <a href="{% url 'cd_library:index' %}">Go back</a>
+    <form method="post">{% csrf_token %}
+        {% for row in form.fields.values %}
+            <div class="form-group">
+                {{ row }}
+            </div>
+        {% endfor %}
+        <input type="submit" value="Add CD">
+    </form>
+{% endblock %}

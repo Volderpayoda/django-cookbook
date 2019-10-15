@@ -1,0 +1,8 @@
+{% extends "cd_library/base.html" %}
+{% block title %} Add a CD {% endblock %}
+{% block body %}
+    <form method="post">{% csrf_token %}
+        <p>Are you sure you want to delete "{{ cd }}"?</p>
+        <input type="submit" value="Confirm">
+    </form>
+{% endblock %}
