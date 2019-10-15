@@ -1,0 +1,16 @@
+{% extends "cd_library/base.html" %}
+{% block body %}
+    <h2>Library index</h2>
+    {% for cd in cds %}
+        <div class="col-sm-3">
+            <div class="card" style="width: 18rem;">
+                <img src="https://sherwin.scene7.com/is/image/sw/color-swatch?_tparam_size=250,250&layer=comp&_tparam_color=636562" alt="{{ cd.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ cd.title }}</h5>
+                    <p class="card-text"> {{ cd.artist }} </p>
+                    <a href="{% url 'cd_library:detail' cd.pk %}">Details</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
